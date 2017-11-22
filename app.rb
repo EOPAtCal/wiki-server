@@ -7,13 +7,13 @@ require "./helpers.rb"
 include Helpers
 
 $base_url = "http://eop.wikidot.com"
-$host_url = "http://localhost:4567"
+$host_url = "https://ce3-wiki.herokuapp.com"
 
 get '/' do
   @paths, @current_navitem = [], "Home"
-  @wiki_links = ["http://localhost:4567/wiki:eop-wiki",
-                 "http://localhost:4567/wiki:undocumented-student-program-wiki",
-                 "http://localhost:4567/wiki:transfer-student-services-center"]
+  @wiki_links = [$host_url + "/wiki:eop-wiki",
+                 $host_url + "/wiki:undocumented-student-program-wiki",
+                 $host_url + "/wiki:transfer-student-services-center"]
   @external_links = []
   erb :index
 end
