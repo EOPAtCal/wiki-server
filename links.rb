@@ -1,5 +1,4 @@
 require "./helpers.rb"
-require 'rubygems'
 require 'nokogiri'
 include Helpers
 
