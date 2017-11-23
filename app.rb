@@ -30,7 +30,7 @@ get '*' do |link|
     link = format_link(link)
     @paths = generate_breadcrumbs(link)
     if @paths.size > 0
-      @paths = @paths.first(@paths.size-1),
+      @paths = @paths.first(@paths.size-1)
     else
       @paths = []
     end
