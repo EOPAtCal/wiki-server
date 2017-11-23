@@ -29,7 +29,7 @@ module BreadCrumbs
       return paths[path]
     else
       puts "could not find entry with key #{path}"
-      return []
+      return ["/", path]
     end
   end
 end
