@@ -4,11 +4,6 @@ include Helpers
 module BreadCrumbs
   def generate_breadcrumbs(path)
     fpath = "./logs/path.bfs"
-
-    if path == "http://eop.wikidot.com/wiki:eop-websites-social-media"
-      path << "//"
-    end
-
     content = read_file(fpath)
     paths = Hash.new
     content.each_line do |line|
@@ -34,7 +29,7 @@ module BreadCrumbs
       return paths[path]
     else
       puts "could not find entry with key #{path}"
-      return []
+      return ["/", path]
     end
   end
 end
