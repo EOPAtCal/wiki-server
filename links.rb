@@ -14,8 +14,8 @@ module Links
     items.each do |item|
       external_links = external_links.reject { |l| check_link(l, item) }
     end
-    wiki_links = wiki_links.map { |l| clean_link(l) },
-      external_links = external_links.map { |link| clean_link(link) }
+    wiki_links = wiki_links.map { |l| clean_link(l) }
+    external_links = external_links.map { |link| clean_link(link) }
     return [wiki_links.uniq, external_links.uniq]
   end
 
