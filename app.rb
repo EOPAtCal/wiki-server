@@ -29,7 +29,12 @@ get '*' do |link|
     original_link = link
     link = format_link(link)
     @paths = generate_breadcrumbs(link)
-    @paths, @current_navitem = @paths.first(@paths.size-1), get_nav_item(@paths.last)
+    if @paths.size > 0
+      @paths = @paths.first(@paths.size-1),
+    else
+      @paths = []
+    end
+    @current_navitem = get_nav_item(@paths.last)
     @paths = @paths.map { |p| hosturl_sub(p, $base_url, $host_url) }
     path = original_link.split(".com/")[1]
     links = get_links(File.join("public", path), $host_url)
