@@ -12,7 +12,7 @@ module Links
     external_links = hrefs - wiki_links
     items = ['system:page-tags/tag/', 'javascript']
     items.each do |item|
-      external_links = external_links.reject { |l| check_link(l, item) }
+      external_links = external_links.reject { |l| check_link?(l, item) }
     end
     wiki_links = wiki_links.map { |l| clean_link(l) }
     external_links = external_links.map { |link| clean_link(link) }
