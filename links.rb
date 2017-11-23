@@ -9,17 +9,18 @@ module Links
     hrefs = links.map { |link| link["href"] }
     wiki_links = hrefs.select { |link| check_link?(link, base_url) }
 
-    external_links = []
-    items = [base_url, 'system:page-tags/tag/', 'javascript']
+    external_links = hrefs - wiki_links
+    items = ['system:page-tags/tag/', 'javascript']
     items.each do |item|
-      external_links.concat( hrefs.select { |link| !check_link?(link, item) } )
+      external_links = external_links.reject { |l| check_link(l, item) }
     end
-    return [wiki_links.map { |l| clean_link(l) },
-            external_links.map { |link| clean_link(link) }]
+    wiki_links = wiki_links.map { |l| clean_link(l) },
+      external_links = external_links.map { |link| clean_link(link) }
+    return [wiki_links.uniq, external_links.uniq]
   end
 
-  def check_link?(link, base_url)
-    link.include? base_url
+  def check_link?(link, item)
+    link.include? item
   end
 
   def clean_link(link)
