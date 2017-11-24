@@ -28,7 +28,7 @@
             </li>
             <% @wiki_links.each do |link| %>
             <a href="<%= link %>" class="list-group-item list-group-action list-group-item-info">
-              <% link = link.rpartition(":").last %>
+              <% link = link.rpartition(":").last == "" ?  link : link.rpartition(":").last %>
               <% link = link.gsub!(/^\/*/, "") %>
               <%= link.gsub!(/\/*$/, "") %>
             </a>
