@@ -24,7 +24,7 @@ module Links
   end
 
   def clean_link(link)
-    link = link.gsub!(/^\/*/, "")
-    link.gsub!(/\/*$/, "")
+    link = link.gsub!(/^\/+/, "")
+    link.gsub!(/\/+$/, "")
   end
 end

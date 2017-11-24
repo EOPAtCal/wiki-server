@@ -12,7 +12,7 @@
   <body>
     <div class="container">
       <nav class="navbar navbar-light bg-faded">
-        <a class="navbar-brand display-1" href="#">
+        <a class="navbar-brand display-1" href="https://ce3-wiki.herokuapp.com">
           The Centers for Educational Equity &amp; Excellence
         </a>
       </nav>
@@ -29,8 +29,8 @@
             <% @wiki_links.each do |link| %>
             <a href="<%= link %>" class="list-group-item list-group-action list-group-item-info">
               <% link = link.rpartition(":").last %>
-              <% link = link.gsub!(/^\/*/, "") %>
-              <%= link.gsub!(/\/*$/, "") %>
+              <% link = link.gsub!(/^\/+/, "") %>
+              <%= link.gsub!(/\/+$/, "") %>
             </a>
             <% end %>
           </div>
@@ -42,8 +42,8 @@
             <% @external_links.each do |link| %>
             <a href="<%= link %>" class="list-group-item list-group-action list-group-item-warning" target="_blank">
               <% link = link.rpartition(":").last %>
-              <% link = link.gsub!(/^\/*/, "") %>
-              <%= link.gsub!(/\/*$/, "") %>
+              <% link = link.gsub!(/^\/+/, "") %>
+              <%= link.gsub!(/\/+$/, "") %>
             </a>
             <% end %>
           </div>
