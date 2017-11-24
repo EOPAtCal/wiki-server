@@ -42,8 +42,7 @@
             <% @external_links.each do |link| %>
             <a href="<%= link %>" class="list-group-item list-group-action list-group-item-warning" target="_blank">
               <% link = link.rpartition(":").last == "" ?  link : link.rpartition(":").last %>
-              <% link = link.gsub!(/^\/*/, "") %>
-              <%= link.gsub!(/\/*$/, "") %>
+              
             </a>
             <% end %>
           </div>
