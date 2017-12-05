@@ -1,0 +1,17 @@
+{
+  "name": "wiki-server",
+  "homepage": "https://github.com/EOPAtCal/wiki-server",
+  "authors": [
+    "Samuel Karani Mbaabu <samuel.karani@berkeley.edu>"
+  ],
+  "description": "wiki for ce3 departments at UC Berkeley",
+  "main": "",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
