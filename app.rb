@@ -8,6 +8,7 @@ include Helpers
 
 $base_url = "http://eop.wikidot.com"
 $host_url = "https://ce3-wiki.herokuapp.com"
+set :layout => :flatui
 
 get '/' do
   @paths, @current_navitem = [], "Home"
@@ -39,8 +40,27 @@ get '*' do |link|
   end
 end
 
-# helpers
+# helper
 def format_link(link)
   link.prepend($base_url)
   link.chomp(".html")
+end
+
+
+helpers do
+  def partition_link(link)
+    link.rpartition(":").last == "" ?  link : link.rpartition(":").last
+  end
+
+  def remove_leading_slash(link)
+    link.gsub!(/^\/*/, "")
+  end
+
+  def remove_trailing_slash(link)
+    link.gsub!(/\/*$/, "")
+  end
+
+  def process_sidebar_link(link)
+    remove_trailing_slash(remove_leading_slash(partition_link(link)))
+  end
 end
